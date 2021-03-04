@@ -1,16 +1,15 @@
-const express = require('express');
+const { Router } = require('express');
 const InvoiceController = require('./controllers/InvoiceController');
+const routes = Router();
 
-const routes = express.Router();
-
-app.get('/', (req, res) => {
+routes.get('/', (req, res) => {
 	res.json({ status: true })
 });
 
-routes.get('/invoices', InvoiceController);
-routes.post('/invoices', InvoiceController);
-routes.put('/invoices', InvoiceController);
-routes.patch('/invoices', InvoiceController);
-routes.delete('/invoices', InvoiceController);
+routes.get('/invoices', InvoiceController.index);
+routes.post('/invoices', InvoiceController.store);
+routes.put('/invoices/:id', InvoiceController.update);
+routes.patch('/invoices/:id', InvoiceController.patch);
+routes.delete('/invoices/:id', InvoiceController.delete);
 
 module.exports = routes;
