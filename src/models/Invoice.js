@@ -4,8 +4,8 @@ const InvoiceSchema = new mongoose.Schema(
   {
     ReferenceMonth: Number,
     ReferenceYear: Number,
-    Document: String,
-    Description: String,
+    Document: { type: String, maxLength: 14 },
+    Description: { type: String, maxLength: 256 },
     Amount: Number,
     IsActive: Boolean,
     DeactivatedAt: Date,
