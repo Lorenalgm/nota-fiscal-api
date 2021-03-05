@@ -1,4 +1,4 @@
-const app = require('../server');
+const app = require('../index');
 
 describe("Testing the invoice API", () => {
   it("tests the base route and returns true for status", async () => {
