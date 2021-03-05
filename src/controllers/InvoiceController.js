@@ -2,9 +2,14 @@ const Invoice = require('../models/Invoice');
 
 module.exports = {
   async index(request, response) {
-    // const { type } = request.query;
+    const { month, year, docs, order, page } = request.query;
 
-    const invoices = await Invoice.find().where("IsActive", true);
+    const invoices = await Invoice.find()
+                            .where("IsActive", true)
+                            .sort(order)
+                            // .skip(0)
+                            .limit(5);
+                            // .find({ReferenceMonth:month},{ReferenceYear:year}, {Document:docs});
 
     return response.json(invoices);
   },
