@@ -6,7 +6,7 @@ module.exports = {
 
     const invoices = await Invoice.find()
                             .where("IsActive", true)
-                            .sort(order)
+                            // .sort(order)
                             // .skip(0)
                             .limit(5);
                             // .find({ReferenceMonth:month},{ReferenceYear:year}, {Document:docs});
